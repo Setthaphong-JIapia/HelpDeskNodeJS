@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Knowledge Base</title>
+</head>
+<body>
+    <nav>
+        <a href="/dashboard">Home</a>
+        <a href="/knowledge-base/new">Create Knowledge Base</a>
+        <a href="/logout">Logout</a>
+      </nav>        
+
+    <div class="container">
+        <h1>Knowledge Base</h1>
+
+        <form action="/search-articles" method="get">
+            <input type="text" name="q" placeholder="Search..." required>
+            <button type="submit">Search</button>
+        </form>
+
+        <h2>Articles</h2>
+        <ul>
+            <% articles.forEach(article => { %>
+                <li>
+                    <strong><%= article.title %></strong>
+                    <p><%= article.content.substring(0, 100) %>...</p>
+                    <a href="#">Read more</a>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+</body>
+</html>

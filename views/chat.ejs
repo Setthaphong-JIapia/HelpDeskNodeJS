@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Chat for Ticket <%= ticketId %></title>
+</head>
+<body>
+    <nav>
+        <a href="/dashboard">Home</a>
+        <a href="/logout">Logout</a>
+    </nav>
+
+    <div class="container">
+        <h1>Chat for Ticket ID: <%= ticketId %></h1>
+        <div class="chat-container">
+            <ul class="chat-list">
+                <% chats.forEach(chat => { %>
+                    <li class="chat-item">
+                        <p><strong>Chat Log:</strong> <%= chat.chatLog %></p>
+                        <p><small>Posted on: <%= new Date(chat.createdAt).toLocaleString() %></small></p>
+                    </li>
+                <% }); %>
+            </ul>
+        </div>
+        <form action="/chat/<%= ticketId %>" method="POST">
+            <input type="text" name="senderName" required placeholder="Enter sender's name" />
+            <textarea name="chatLog" required placeholder="Type your message here..."></textarea>
+            <button type="submit">Send Chat</button>
+        </form>
+    </div>
+
+    <script>
+        // Handle form submission
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(event) {
+            const senderName = form.senderName.value.trim();
+            const chatMessage = form.chatLog.value.trim();
+
+            // Combine sender name and message
+            form.chatLog.value = `${senderName}: ${chatMessage}`;
+        });
+    </script>
+</body>
+</html>

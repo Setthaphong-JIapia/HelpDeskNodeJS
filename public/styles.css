@@ -1,0 +1,406 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #7974ff, #e7e300);
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    line-height: 1.6;
+}
+
+/* Header */
+h1 {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 30px;
+    transition: background 0.3s, transform 0.2s;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+/* Main Container */
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 30px;
+    text-align: center;
+}
+
+/* Buttons and Links */
+button, a {
+    background-color: #6c5ce7;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    margin: 10px;
+    font-size: 1rem;
+    transition: background 0.3s, transform 0.2s;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+button:hover, a:hover {
+    background-color: #81ecec;
+    transform: translateY(-3px);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 10px 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav a {
+        margin-bottom: 10px;
+    }
+
+    .container {
+        width: 95%;
+    }
+}
+
+
+.filter-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    width: 200px;
+    cursor: pointer;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #6c5ce7;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Actions Column */
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.action-form {
+    display: inline;
+}
+
+input[type="text"] {
+    width: auto;
+    margin-right: 10px;
+}
+
+/* Hidden Rows */
+.hidden {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    table {
+        font-size: 0.9rem;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+
+    input[type="text"] {
+        width: 100%;
+    }
+}
+
+
+.ticket-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.ticket-item {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ticket-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.ticket-header {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.status {
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.action-form {
+    margin-top: 10px;
+}
+
+button {
+    background: #4CAF50;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #45a049;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px 0;
+    background-color: #333;
+    color: white;
+}
+
+.ticket-header {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #000; /* กำหนดสีตัวอักษรเป็นสีดำ */
+}
+
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* Search Bar */
+form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+form input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+form button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+/* Article List */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    background: white;
+    margin: 15px 0;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+ul li strong {
+    font-size: 1.5rem;
+    color: #4CAF50;
+}
+
+ul li p {
+    margin: 10px 0;
+    color: #555;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+ul li a:hover {
+    color: #4CAF50;
+}
+
+
+.login-page {
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container Styling */
+.login-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-container h1 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container input[type="text"], 
+.login-container input[type="password"] {
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.login-container button {
+    padding: 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-container button:hover {
+    background-color: #45a049;
+}
+
+.login-container input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    resize: none;
+}
+
+textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+
+/* Ticket Details Styles */
+.ticket-details {
+    margin-bottom: 20px;
+}
+
+.ticket-details p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.ticket-details .status {
+    font-weight: bold;
+    color: #00ff0d;
+}

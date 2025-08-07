@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Queue</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <nav>
+        <a href="/dashboard">Home</a>
+        <a href="/tickets/new">View New Ticket</a>
+        <a href="/knowledge-base">knowledge-base</a>
+        <a href="/tickets/assigned">assigned</a>
+        <a href="/edit-queue">edit-queue</a>
+        <a href="/logout">Logout</a>
+      </nav>
+
+    <h1>Edit Queue</h1>
+
+    <div class="container">
+        <form action="/update-queue" method="POST" class="edit-queue-form">
+            <table style="color: black;">
+                <thead>
+                    <tr>
+                        <th>Ticket ID</th>
+                        <th>Description</th>
+                        <th>Priority Level</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% tickets.forEach(ticket => { %>
+                        <tr>
+                            <td><%= ticket.ticketId %></td>
+                            <td><%= ticket.description %></td>
+                            <td>
+                                <input 
+                                    type="number" 
+                                    name="queue[<%= ticket.ticketId %>][priorityLevel]" 
+                                    value="<%= ticket.priorityLevel !== null ? ticket.priorityLevel : 1 %>" 
+                                    class="priority-input"
+                                />
+                                <input 
+                                    type="hidden" 
+                                    name="queue[<%= ticket.ticketId %>][queueId]" 
+                                    value="<%= ticket.queueId !== null ? ticket.queueId : 0 %>" 
+                                />
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+            <button type="submit">Update Queue</button>
+        </form>
+    </div>
+
+</body>
+</html>

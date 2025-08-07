@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- เชื่อมโยง CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <a href="/dashboard">Home</a>
+        <a href="/users">Manage Users</a> <!-- เปลี่ยนจาก Manage Users -->
+        <a href="/reports">Reports</a>
+        <a href="/logout">Logout</a>
+      </nav>
+    <h1>User List</h1>
+    <a href="/users/add">Add New User</a>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Role</th>
+            <th>Actions</th>
+        </tr>
+        <% users.forEach(user => { %>
+        <tr style="color:black">
+            <td><%= user.userId %></td>
+            <td><%= user.username %></td>
+            <td><%= user.roleName || 'N/A' %></td> <!-- แสดงชื่อบทบาทแทน roleId -->
+            <td>
+                <a href="/users/edit/<%= user.userId %>">Edit</a>
+                <form action="/users/delete/<%= user.userId %>" method="POST" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+        <% }) %>
+    </table>
+</body>
+</html>

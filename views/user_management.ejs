@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <link rel="stylesheet" href="/path/to/your/css/style.css">
+</head>
+<body>
+    <h1>User Management</h1>
+
+    <h2>Add User</h2>
+    <form action="/user-management/add" method="POST">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="text" name="role" placeholder="Role" required>
+        <button type="submit">Add User</button>
+    </form>
+
+    <h2>Existing Users</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>Username</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% users.forEach(user => { %>
+                <tr>
+                    <td><%= user.userId %></td>
+                    <td><%= user.username %></td>
+                    <td><%= user.role %></td>
+                    <td>
+                        <!-- Form สำหรับแก้ไข -->
+                        <form action="/user-management/edit/<%= user.userId %>" method="POST" style="display:inline;">
+                            <input type="text" name="username" placeholder="New Username" required>
+                            <input type="text" name="role" placeholder="New Role" required>
+                            <button type="submit">Edit</button>
+                        </form>
+                        <!-- Form สำหรับลบ -->
+                        <form action="/user-management/delete/<%= user.userId %>" method="POST" style="display:inline;">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>

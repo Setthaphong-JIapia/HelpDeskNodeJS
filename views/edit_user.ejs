@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- เชื่อมโยง CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <a href="/dashboard">Home</a>
+        <a href="/users">Manage Users</a> <!-- เปลี่ยนจาก Manage Users -->
+        <a href="/reports">Reports</a>
+        <a href="/logout">Logout</a>
+      </nav>
+    <h1>Edit User</h1>
+    <form action="/users/edit/<%= user.userId %>" method="POST">
+        <label>Username: <input type="text" name="username" value="<%= user.username %>" required></label><br>
+        <label>Password: <input type="password" name="password" placeholder="Leave blank to keep current password"></label><br> <!-- ช่องสำหรับกรอก password -->
+        <label>Role: 
+            <select name="roleId" required>
+                <option value="" disabled>Select Role</option>
+                <% roles.forEach(role => { %>
+                    <option value="<%= role.roleId %>" <%= role.roleId == user.roleId ? 'selected' : '' %>><%= role.roleName %></option>
+                <% }); %>
+            </select>
+        </label>
+        <br>
+        <button type="submit">Update User</button>
+    </form>
+</body>
+</html>

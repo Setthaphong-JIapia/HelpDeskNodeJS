@@ -1,0 +1,21 @@
+<!-- views/confirmation.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirmation</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- เชื่อมโยง CSS -->
+</head>
+
+<body>
+    <nav>
+        <a href="/dashboard">Home</a>
+        <a href="/submit-ticket">Create your new ticket</a>
+        <a href="/track-tickets">Ticket Status</a>
+        <a href="/knowledge-base">knowledge-base</a>
+        <a href="/logout">Logout</a>
+      </nav>
+    <h1>Ticket Created Successfully</h1>
+    <p>Your ticket ID is: <%= ticketId %></p>
+    <a href="/submit-ticket">Submit another ticket</a>
+</body>
+</html>

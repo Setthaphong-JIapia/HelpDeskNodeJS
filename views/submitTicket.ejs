@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Ticket</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- เชื่อมโยง CSS -->
+</head>
+<body class="submit-ticket-page">
+    <nav>
+        <a href="/dashboard">Home</a>
+        <a href="/submit-ticket">Create your new ticket</a>
+        <a href="/track-tickets">Ticket Status</a>
+        <a href="/knowledge-base">Knowledge Base</a>
+        <a href="/logout">Logout</a>
+    </nav>
+
+    <div class="form-container">
+        <h1>Submit Ticket</h1>
+        <form action="/submit-ticket" method="POST">
+            <textarea name="description" placeholder="Describe your issue in detail..." required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

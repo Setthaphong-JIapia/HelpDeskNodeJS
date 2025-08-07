@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Ticket Details</title>
+</head>
+<body>
+    <nav>
+        <a href="/dashboard">Home</a>
+        <a href="/submit-ticket">Create your new ticket</a>
+        <a href="/track-tickets">Ticket Status</a>
+        <a href="/knowledge-base">Knowledge Base</a>
+        <a href="/logout">Logout</a>
+    </nav>
+
+    <div class="container">
+        <h1>Ticket ID: <%= ticket.ticketId %></h1>
+        <div class="ticket-details">
+            <p><strong>Description:</strong> <%= ticket.description %></p>
+            <p><strong>Status:</strong> <span class="status"><%= ticket.status %></span></p>
+            <p><strong>Created Date:</strong> <%= ticket.createdDate %></p>
+            <p><strong>Solution:</strong> <%= ticket.solution %></p>
+        </div>
+        <a class="back-button" href="/track-tickets">Back to Ticket List</a>
+    </div>
+</body>
+</html>

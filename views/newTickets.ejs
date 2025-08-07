@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Tickets</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <a href="/dashboard">Home</a>
+        <a href="/tickets/new">View New Ticket</a>
+        <a href="/knowledge-base">knowledge-base</a>
+        <a href="/tickets/assigned">assigned</a>
+        <a href="/edit-queue">edit-queue</a>
+        <a href="/logout">Logout</a>
+      </nav>    
+
+    <div class="container">
+        <h1>New Tickets</h1>
+
+        <ul class="ticket-list">
+            <% tickets.sort((a, b) => a.priorityLevel - b.priorityLevel).forEach(ticket => { %>
+                <li class="ticket-item">
+                    <div class="ticket-header">
+                        <strong><%= ticket.description %></strong>
+                    </div>
+                    <p style="color: black;">Status: <span class="status"><%= ticket.status %></span></p>
+                    <p style="color: black;">Assigned By: <%= ticket.assignedBy || 'Not Assigned' %></p>
+
+                    <% if (ticket.status === 'NEW') { %>
+                        <p style="color: black;">Queue: <span class="status"><%= ticket.priorityLevel %></span></p>
+                        <form action="/tickets/assign" method="POST" class="action-form">
+                            <input type="hidden" name="ticketId" value="<%= ticket.ticketId %>">
+                            <button type="submit">Assign</button>
+                        </form>
+                    <% } %>
+                </li>
+            <% }) %>
+        </ul>
+    </div>
+
+    <footer>
+        <p>Helpdesk System © 2024 | Designed with modern simplicity</p>
+    </footer>
+</body>
+</html>
