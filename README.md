@@ -84,6 +84,27 @@ Here's an overview of the project's directory structure:
 - **/views**: EJS templates used to render the application's HTML for pages like creating tickets or viewing articles.
 - **/public**: Static assets like CSS and JavaScript for the frontend styling and functionality.
 
+## 📌 Use Case Diagram
+
+```mermaid
+graph TD
+  User((User))
+  Admin((Admin))
+  Technician((Technician))
+  System((HelpDesk System))
+
+  User -->|Create Ticket| System
+  User -->|View Ticket Status| System
+  User -->|Send Message| System
+
+  Admin -->|View All Tickets| System
+  Admin -->|Assign Ticket| Technician
+  Admin -->|Update Ticket Status| System
+
+  Technician -->|View Assigned Tickets| System
+  Technician -->|Update Progress| System
+
+
 ## Technologies Used
 
 - **Node.js**: JavaScript runtime environment.
